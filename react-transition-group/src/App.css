@@ -26,6 +26,21 @@
     animation: show-loader 1s forwards;
 }
 
+.circle.entering {
+    animation: show-loader .5s forwards;
+}
+
+.circle.entered {
+    animation: rotate-loader .5s infinite;
+}
+
+.circle.exiting {
+    animation: show-loader .5s reverse;
+}
+
+.circle.exited {
+}
+
 @keyframes show-loader {
     0% {
         opacity: 0;

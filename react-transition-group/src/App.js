@@ -1,9 +1,15 @@
+import {useEffect, useState} from "react";
+import {Transition} from "react-transition-group";
 import './App.css';
-import {useState} from "react";
 
 
 function App() {
     const [loaderVisible, setLoaderVisible] = useState(false)
+
+    useEffect(() => {
+        setTimeout(() => setLoaderVisible(true), 1000)
+        setTimeout(() => setLoaderVisible(false), 5000)
+    }, [])
 
     return (
         <div className="App">
@@ -11,7 +17,15 @@ function App() {
                 {loaderVisible ? 'hide' : 'show'}
             </button>
             <div className="wrap">
-                {loaderVisible && <div className={"circle"}></div>}
+                <Transition
+                    in={loaderVisible}
+                    timeout={500}
+                    mountOnEnter
+                    unmountOnExit
+                    onEnter={() => console.log("onEnter")}
+                >
+                    {state => <div className={`circle ${state}`}></div>}
+                </Transition>
             </div>
         </div>
     );
