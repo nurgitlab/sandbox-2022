@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Transition} from "react-transition-group";
+import {Transition, CSSTransition} from "react-transition-group";
 import './App.css';
 
 
@@ -17,15 +17,30 @@ function App() {
                 {loaderVisible ? 'hide' : 'show'}
             </button>
             <div className="wrap">
-                <Transition
+                {/*<Transition*/}
+                {/*    in={loaderVisible}*/}
+                {/*    timeout={500}*/}
+                {/*    mountOnEnter*/}
+                {/*    unmountOnExit*/}
+                {/*    onEnter={() => console.log("onEnter")}*/}
+                {/*>*/}
+                {/*    {state => <div className={`circle ${state}`}></div>}*/}
+                {/*</Transition>*/}
+
+                <CSSTransition
                     in={loaderVisible}
                     timeout={500}
+                    // classNames="circle"
+                    classNames = {{
+                        enterActive: 'circle-show',
+                        enterDone: 'circle-rotate',
+                        exitActive: 'circle-hide',
+                    }}
                     mountOnEnter
                     unmountOnExit
-                    onEnter={() => console.log("onEnter")}
                 >
-                    {state => <div className={`circle ${state}`}></div>}
-                </Transition>
+                    <div className={`circle`}></div>
+                </CSSTransition>
             </div>
         </div>
     );

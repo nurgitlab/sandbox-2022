@@ -26,20 +26,35 @@
     animation: show-loader 1s forwards;
 }
 
-.circle.entering {
+.circle-show {
     animation: show-loader .5s forwards;
 }
 
-.circle.entered {
+.circle-rotate {
     animation: rotate-loader .5s infinite;
 }
 
-.circle.exiting {
+.circle-hide {
     animation: show-loader .5s reverse;
 }
 
 .circle.exited {
 }
+
+/*.circle.entering {*/
+/*    animation: show-loader .5s forwards;*/
+/*}*/
+
+/*.circle.entered {*/
+/*    animation: rotate-loader .5s infinite;*/
+/*}*/
+
+/*.circle.exiting {*/
+/*    animation: show-loader .5s reverse;*/
+/*}*/
+
+/*.circle.exited {*/
+/*}*/
 
 @keyframes show-loader {
     0% {
