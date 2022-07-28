@@ -1,0 +1,62 @@
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    border: 3px dashed black;
+
+    animation: show-loader 1s forwards;
+}
+
+.circle-show {
+    animation: show-loader .5s forwards;
+}
+
+.circle-rotate {
+    animation: rotate-loader .5s infinite;
+}
+
+.circle-hide {
+    animation: show-loader .5s reverse;
+}
+
+.circle.exited {
+}
+
+
+.circle.entering {
+    animation: show-loader .5s forwards;
+}
+
+.circle.entered {
+    animation: rotate-loader .5s infinite;
+}
+
+.circle.exiting {
+    animation: show-loader .5s reverse;
+}
+
+.circle.exited {
+}
+
+@keyframes show-loader {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate-loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
