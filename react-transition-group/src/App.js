@@ -23,7 +23,6 @@ function App() {
 
     const location = useLocation();
 
-
     return (
         <div className="app">
             <div className={"navigate"}>
@@ -45,7 +44,6 @@ function App() {
                     />
                 ))}
             </Routes>
-
         </div>
     );
 }
