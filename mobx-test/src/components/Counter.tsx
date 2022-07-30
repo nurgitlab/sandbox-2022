@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from "react";
-import counter from "./store/counter";
+import counter from "../store/counter";
 import {observer} from "mobx-react-lite";
 
 export const Counter: FunctionComponent = observer(() => {
@@ -8,7 +8,7 @@ export const Counter: FunctionComponent = observer(() => {
                 <button onClick={() => counter.decrement()}>+</button>
                 <button onClick={() => counter.increment()}>-</button>
                 <div>
-                    {"Counter = " + counter.count}
+                    {counter.total}
                 </div>
             </div>
         )
