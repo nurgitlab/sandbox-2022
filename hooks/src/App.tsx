@@ -2,6 +2,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import './App.css';
 import {useTypedSelector} from "./hooks/useTypedSelector";
 import {Ref} from "./pages/Ref";
+import {Memo} from "./pages/Memo";
+import {Callback} from "./pages/Callback";
 
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
         {username}
       </div>
 
-      <Ref/>
+      <Callback/>
     </div>
   );
 }
