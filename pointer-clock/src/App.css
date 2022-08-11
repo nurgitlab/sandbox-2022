@@ -10,8 +10,6 @@
 
 .sec, .min, .hour {
     position: absolute;
-
-    transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .sec {
@@ -21,12 +19,50 @@
     height: 570px;
     top: 15px;
     left: 318px;
-
-    transform: rotate(90deg);
-
 }
-.sec div {
+
+.min {
+    z-index: 2;
+
+    width: 10px;
+    height: 470px;
+    top: 65px;
+    left: 315px;
+}
+
+.hour {
+    z-index: 1;
+
+    width: 20px;
+    height: 370px;
+    top: 115px;
+    left: 310px;
+}
+
+.sec div, .min div, .hour div {
     width: 100%;
     height: 50%;
+}
+
+.sec div {
     background: red;
+}
+
+.min div {
+    background: blue;
+}
+
+.hour div {
+    background: gray;
+}
+
+.circle {
+    position: absolute;
+    top: 270px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 200px;
+    border-radius: 150px 150px 0 0;
+    background-color: green;
 }

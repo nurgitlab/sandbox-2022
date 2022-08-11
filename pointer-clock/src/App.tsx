@@ -65,11 +65,32 @@ export const App: FC = () => {
       <ul className="clock">
         <li
           className="sec"
-          style={{transform: `rotate(${Number(currentTime[2])*6}deg)`}}
-        ><div/></li>
-        <li className="hour"></li>
-        <li className="min"></li>
+          style={{transform: `rotate(${Number(currentTime[2]) * 6}deg)`}}
+        >
+          <div/>
+        </li>
+        <li
+          className="min"
+          style={{
+            transform: `rotate(${
+              Number(currentTime[1]) * 6 + Math.floor(Number(currentTime[2]) / 20)
+            }deg)`
+          }}
+        >
+          <div/>
+        </li>
+        <li
+          className="hour"
+          style={{
+            transform: `rotate(${
+              Number(currentTime[0]) * 30 + Math.floor(Number(currentTime[1]) / 20)
+            }deg)`
+          }}
+        >
+          <div/>
+        </li>
       </ul>
+      <div className={"circle"}/>
     </div>
   );
 }
