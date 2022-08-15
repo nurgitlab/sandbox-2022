@@ -5,6 +5,8 @@ var removeElement = function(nums, val) {
       i--;
     }
   }
+
+  // return nums
 };
 
 console.log(removeElement([3, 2, 2, 3], 3))
