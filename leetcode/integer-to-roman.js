@@ -4,9 +4,9 @@ var intToRoman = function (num) {
   for (let i = 0; i < num.toString().length; i++) {
     let currentNum = Math.floor(num / (10 ** i)) % (10)
     if (i < 3) {
-      ans.push(toRoman(i,currentNum))
+      ans.push(toRoman(i, currentNum))
     } else {
-      m+=currentNum
+      m += currentNum
     }
   }
   m = m.split('').reverse().join('')

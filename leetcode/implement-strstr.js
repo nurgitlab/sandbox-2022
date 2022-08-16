@@ -1,4 +1,4 @@
-var strStr = function(haystack, needle) {
+var strStr = function (haystack, needle) {
   let arr1 = haystack.split("")
   let arr2 = needle.split("")
   let ans = -1
@@ -6,7 +6,7 @@ var strStr = function(haystack, needle) {
   for (let i = 0; i < arr1.length; i++) {
     let flag = true
     for (let j = 0; j < arr2.length; j++) {
-      if (arr1[i+j]!==arr2[j]) {
+      if (arr1[i + j] !== arr2[j]) {
         flag = false
         break
       }
@@ -22,4 +22,4 @@ var strStr = function(haystack, needle) {
   return ans
 };
 
-console.log(strStr("aaaaaaa","ba"))
+console.log(strStr("aaaaaaa", "ba"))

@@ -14,7 +14,7 @@ var myAtoi = function (s) {
     if (s[i] === '-' && i > 0) {
       break
     }
-    if (s[i]!=='-' && (isNaN(parseInt(s[i])))) {
+    if (s[i] !== '-' && (isNaN(parseInt(s[i])))) {
       break
     }
     if (!isNaN(parseInt(s[i]))) {
@@ -22,7 +22,7 @@ var myAtoi = function (s) {
         if (s[i - 1] === '-') {
           ans.push(`-`)
           ans.push(s[i])
-        }else {
+        } else {
           ans.push(s[i])
         }
       } else {
@@ -35,12 +35,11 @@ var myAtoi = function (s) {
     let el = parseInt(ans.join(''))
     if (el > 2147483647) {
       return 2147483647
-    } else
-      if (el < -2147483648) {
-        return -2147483648
-      } else {
-        return el
-      }
+    } else if (el < -2147483648) {
+      return -2147483648
+    } else {
+      return el
+    }
   } else {
     return 0
   }

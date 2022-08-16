@@ -1,19 +1,19 @@
-var groupAnagrams = function(strs) {
+var groupAnagrams = function (strs) {
   let types = []
   for (let i = 0; i < strs.length; i++) {
-    let mem = strs[i].split('').sort((a,b)=>{
-      if (`${a}`>`${b}`) {
+    let mem = strs[i].split('').sort((a, b) => {
+      if (`${a}` > `${b}`) {
         return 1
       } else {
         return -1
       }
     })
 
-    types.push([strs[i],mem.join('')])
+    types.push([strs[i], mem.join('')])
   }
 
-  types.sort((a,b)=>{
-    if (a[1]>b[1]) {
+  types.sort((a, b) => {
+    if (a[1] > b[1]) {
       return 1
     } else {
       return -1
@@ -27,11 +27,13 @@ var groupAnagrams = function(strs) {
     if (prev === types[i][1]) {
       localAns.push(types[i][0])
     } else {
-      if (i>0) {ansArr.push(localAns)}
+      if (i > 0) {
+        ansArr.push(localAns)
+      }
       localAns = []
       localAns.push(types[i][0])
     }
-    if (types.length-1 === i) {
+    if (types.length - 1 === i) {
       ansArr.push(localAns)
     }
     prev = types[i][1]

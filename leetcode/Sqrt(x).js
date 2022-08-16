@@ -6,7 +6,9 @@ var mySqrt = function (x) {
   let prevX = null
 
   while (!finded) {
-    if (prevX === myX) {break}
+    if (prevX === myX) {
+      break
+    }
     prevX = myX
     console.log("myX", myX)
 
@@ -36,8 +38,8 @@ var mySqrt = function (x) {
     }
   }
 
-  if ((myX+1)* (myX+1) <= x) {
-    while ((myX+1)* (myX+1) <= x) {
+  if ((myX + 1) * (myX + 1) <= x) {
+    while ((myX + 1) * (myX + 1) <= x) {
       myX++
     }
   }
