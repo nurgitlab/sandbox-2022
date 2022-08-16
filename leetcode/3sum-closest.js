@@ -35,4 +35,4 @@ var threeSumClosest = function (nums, target) {
   return ans
 };
 
-console.log(threeSumClosest([0,0,0], 1))
+console.log(threeSumClosest([0, 0, 0], 1))
