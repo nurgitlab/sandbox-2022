@@ -5,22 +5,44 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const arr = [];
+let arr = [];
+let arr2 = [];
+
+let n = 0
 
 rl.on('line', line => {
   arr.push(line);
-  if(arr.length === 2) {
-    let j = arr[0].split('')
-    let s = arr[1].split('')
+  if (arr.length === 1) {
+    n = Number(arr[0])
 
-    let sum = 0
+    if (n > 0) {
 
-    for (let i = 0; i < s.length; i++) {
-      if (j.includes(s[i])) {sum++}
+      rl.on('line', line => {
+        arr2.push(Number(line));
+        if (arr2.length === n) {
+          let maxSum = 0
+          let sum = 0
+          for (let i = 0; i < arr2.length; i++) {
+            if (arr2[i] === 1) {
+              sum++
+            } else {
+              sum = 0
+            }
+            if (maxSum < sum) {
+              maxSum = sum
+            }
+          }
+
+          console.log(maxSum)
+
+          rl.close()
+        }
+      })
+    } else if (n === 0) {
+      console.log(0)
+    } else {
+      console.log(-1)
     }
-
-
-    console.log(sum)
-    rl.close();
   }
 })
+
