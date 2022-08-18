@@ -1,20 +1,32 @@
 var letterCombinations = function (digits) {
-  let ans = []
-  let ukazatel = []
-  let lenghts = []
-  let numStr = digits.toString()
-
-  for (let i = 0; i < numStr.length; i++) {
-    ukazatel[i] = 0
-    let el = lettersInNumber(Number(numStr[i])).split('')
-    lenghts[i] = el.length
-    ans.push(el)
+  if (digits.length === 0) {
+    return []
   }
+  let letters = []
+  digits.split('').forEach(el => {
+    let str = lettersInNumber(el)
+    letters.push(str.split(''))
+  })
+  let ans = []
+
+  function rec(letter, n, str) {
+    if (digits.length === str.length) {
+      ans.push(str)
+    } else {
+      letter[n].forEach(el => {
+        rec(letter, n + 1, str + el)
+      })
+    }
+  }
+
+  rec(letters, 0, '')
 
   return ans
 };
 
+
 function lettersInNumber(number) {
+  number = Number(number)
   if (number === 2) {
     return 'abc'
   } else if (number === 3) {
@@ -34,4 +46,4 @@ function lettersInNumber(number) {
   }
 }
 
-console.log(letterCombinations(23))
+console.log(letterCombinations('2'))
