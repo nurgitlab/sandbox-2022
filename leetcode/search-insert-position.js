@@ -42,4 +42,4 @@ var searchInsert = function (nums, target) {
   return n
 }
 
-console.log(searchInsert([1,3,5], 4))
+console.log(searchInsert([1, 3, 5], 4))
