@@ -1,5 +1,9 @@
-var minCostClimbingStairs = function(cost) {
+function minCostClimbingStairs(costs) {
+  costs.push(0);
 
-};
+  for (let i = costs.length - 3; i >= 0; i--) {
+    costs[i] += Math.min(costs[i + 1], costs[i + 2]);
+  }
 
-console.log(minCostClimbingStairs([10,15,20]))
+  return Math.min(costs[0], costs[1]);
+}
