@@ -1,4 +1,4 @@
-var intersection = function(nums1, nums2) {
+var intersection = function (nums1, nums2) {
   let set1 = new Set()
   let set2 = new Set()
   nums1.forEach(el => {
@@ -13,4 +13,4 @@ var intersection = function(nums1, nums2) {
   return [...set2]
 };
 
-console.log(intersection([4,9,5],  [9,4,9,8,4]))
+console.log(intersection([4, 9, 5], [9, 4, 9, 8, 4]))

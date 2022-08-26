@@ -1,4 +1,4 @@
-var isPowerOfFour = function(n) {
+var isPowerOfFour = function (n) {
   let ans = false
   for (let i = 0; i < n; i++) {
     if (4 ** i === n) {

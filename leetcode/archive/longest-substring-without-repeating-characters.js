@@ -1,5 +1,5 @@
 var lengthOfLongestSubstring = function (s) {
-  if (s.length <=1) {
+  if (s.length <= 1) {
     return s.length
   }
   let mem = {}

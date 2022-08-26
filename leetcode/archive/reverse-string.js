@@ -1,4 +1,4 @@
-var reverseString = function(s) {
+var reverseString = function (s) {
   s.reverse()
 };
 

@@ -2,7 +2,7 @@ var guessNumber = function (n) {
   let r = n
   let l = 1
   let ans = -1
-  
+
   while (l <= r) {
     let mid = Math.floor((l + r) / 2)
     if (guess(mid) === 0) {

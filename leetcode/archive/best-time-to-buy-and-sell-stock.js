@@ -2,7 +2,7 @@ var maxProfit = function (prices) {
   let min = prices[0]
   let sum = 0
   for (let pr of prices) {
-    min = Math.min(pr , min)
+    min = Math.min(pr, min)
     sum = Math.max((pr - min), sum)
   }
 

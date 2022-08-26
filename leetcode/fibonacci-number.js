@@ -6,11 +6,11 @@ var fib = function (n) {
     } else if (i === 1) {
       mem.push(1)
     } else {
-      mem.push(mem[i-1] + mem[i-2])
+      mem.push(mem[i - 1] + mem[i - 2])
     }
   }
 
-  let ans = mem.slice(mem.length-1).join('')
+  let ans = mem.slice(mem.length - 1).join('')
 
   return ans
 };

@@ -8,7 +8,7 @@ var findDisappearedNumbers = function (nums) {
   }
 
   let ans = []
-  for (let i = min; i <=max; i++) {
+  for (let i = min; i <= max; i++) {
     if (set.has(i)) {
       continue
     } else {
@@ -19,4 +19,4 @@ var findDisappearedNumbers = function (nums) {
   return ans
 };
 
-console.log(findDisappearedNumbers([4,3,2,7,8,2,3,1]))
+console.log(findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]))

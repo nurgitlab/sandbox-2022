@@ -10,7 +10,7 @@ var majorityElement = function (nums) {
   })
   let ans
   Object.keys(mem).forEach(el => {
-    if (mem[el]>m) {
+    if (mem[el] > m) {
       ans = el
     }
   })

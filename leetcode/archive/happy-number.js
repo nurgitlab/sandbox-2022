@@ -1,5 +1,6 @@
 var isHappy = function (n) {
   let set = new Set()
+
   function rec(m) {
     if (m === 1) {
       return true

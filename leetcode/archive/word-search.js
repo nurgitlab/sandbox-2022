@@ -3,7 +3,7 @@ var exist = function (board, word) {
   for (let i in board) {
     for (let j in board[i]) {
       if (board[i][j] === word[0]) {
-        ans||=startSearch(word, [i, j], null, board)
+        ans ||= startSearch(word, [i, j], null, board)
       }
     }
   }
@@ -49,6 +49,6 @@ function startSearch(word, index, prevIndex, board) {
 }
 
 console.log(exist(
-  [["a","a","a","a"],["a","a","a","a"],["a","a","a","a"]],
+  [["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]],
   "aaaaaaaaaaaaa"
 ))

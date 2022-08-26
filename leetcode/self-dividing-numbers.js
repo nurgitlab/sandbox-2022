@@ -1,6 +1,6 @@
 var selfDividingNumbers = function (left, right) {
   let ans = []
-  for (let i = left; i <= right; i++){
+  for (let i = left; i <= right; i++) {
     if (isDiv(i)) {
       ans.push(i)
     }
