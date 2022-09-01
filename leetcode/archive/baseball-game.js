@@ -11,7 +11,7 @@ var calPoints = function (ops) {
         mem.push(0)
       }
     } else if (el === "+") {
-      let s = mem[mem.length -1] + mem[mem.length -2]
+      let s = mem[mem.length - 1] + mem[mem.length - 2]
       mem.push(s)
     } else {
       el = Number(el)

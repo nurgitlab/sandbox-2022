@@ -37,4 +37,4 @@ var lemonadeChange = function (bills) {
   return ans
 };
 
-console.log(lemonadeChange([5,5,10,10,20]))
+console.log(lemonadeChange([5, 5, 10, 10, 20]))
