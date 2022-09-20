@@ -1,0 +1,55 @@
+.film-card {
+    width: 250px;
+    height: 400px;
+    background: wheat;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.film-card__image {
+    width: 220px;
+    height: 140px;
+
+    overflow: hidden;
+}
+
+.film-card__title {
+    font-size: 25px;
+    font-weight: 800;
+    width: 220px;
+    background: #fb6161;
+
+    margin-bottom: 20px;
+}
+
+.film-card__description {
+    width: 220px;
+
+    -webkit-line-clamp: 4; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    background: rgba(97, 218, 251, 0.4);
+
+    margin-bottom: 10px;
+}
+
+.film-card__button {
+    width: 220px;
+    height: 30px;
+
+    cursor: pointer;
+}
+
+.film-card__button:hover {
+    background: #61dafb;
+}
+
+.film-card__button:active {
+    background: green;
+}

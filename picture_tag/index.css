@@ -1,4 +1,4 @@
-.red__block {
+.red-block {
     background: #fb6161;
     background: red;
     background: rgb(204, 117, 117);
@@ -16,41 +16,32 @@
     color: wheat;
 }
 
-.green__block {
+.green-block {
     background: green;
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
 
-    position: relative;
+    display: table-cell;
+    vertical-align: middle;
 }
 
-.blue__block {
-    background: blue;
-    width: 30px;
-    height: 30px;
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-}
-
-.inline {
-    width: 50%;
+.blue-block {
+    background: #61dafb;
+    width: 50px;
     height: 50px;
 
-    background: red;
+    margin: 0 auto;
+}
+
+.card {
+    background: #fb6161;
+    width: 70%;
 
     display: flex;
-
-    justify-content: space-between;
 }
 
-.inline__text {
+.card__text {
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
-
