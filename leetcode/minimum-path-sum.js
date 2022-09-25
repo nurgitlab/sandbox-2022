@@ -18,15 +18,22 @@ const minPathSum = function (grid) {
     } else {
       if (mem[x][y] === undefined) {
         mem[x][y] = sum + grid[x][y]
+        if (x < n) {
+          goToNextCoordinate(x + 1, y, mem[x][y])
+        }
+        if (y < m) {
+          goToNextCoordinate(x, y + 1, mem[x][y])
+        }
       } else {
-        mem[x][y] = Math.min(mem[x][y], sum + grid[x][y])
-      }
-
-      if (x < n) {
-        goToNextCoordinate(x + 1, y, mem[x][y])
-      }
-      if (y < m) {
-        goToNextCoordinate(x, y + 1, mem[x][y])
+        if (mem[x][y] > sum + grid[x][y]) {
+          mem[x][y] = sum + grid[x][y]
+          if (x < n) {
+            goToNextCoordinate(x + 1, y, mem[x][y])
+          }
+          if (y < m) {
+            goToNextCoordinate(x, y + 1, mem[x][y])
+          }
+        }
       }
     }
   }
