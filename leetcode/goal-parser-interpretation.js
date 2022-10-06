@@ -1,9 +1,9 @@
-const interpret = function (command) {
+const interpret = function(command) {
   command = command.split('()').join('o')
   let ans = ''
-  command.split('').forEach(el => {
-    if (el !== '(' && el !== ')') {
-      ans += el
+  command.forEach(el => {
+    if (el !== '(' && el!==')') {
+      ans+=el
     }
   })
   return ans
