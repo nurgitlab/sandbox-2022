@@ -1,5 +1,4 @@
 const maxProduct = function(nums) {
-
   let m = nums.map(el => el - 1)
   m.sort((a,b) => a-b)
 
