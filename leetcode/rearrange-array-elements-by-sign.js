@@ -1,8 +1,12 @@
-const rearrangeArray = function(nums) {
+const rearrangeArray = function (nums) {
   let p = []
   let o = []
   nums.forEach(el => {
-    if (el > 0) {p.push(el)} else {o.push(el)}
+    if (el > 0) {
+      p.push(el)
+    } else {
+      o.push(el)
+    }
   })
   let ans = []
   for (let i = 0; i < p.length; i++) {
@@ -12,4 +16,4 @@ const rearrangeArray = function(nums) {
   return ans
 };
 
-console.log(rearrangeArray([-1,1]))
+console.log(rearrangeArray([-1, 1]))
