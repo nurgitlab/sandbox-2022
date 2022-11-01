@@ -1,4 +1,4 @@
-const reformatDate = function(date) {
+const reformatDate = function (date) {
   date = date.split(' ').reverse()
   const mem = {
     "Jan": 1,
@@ -21,9 +21,9 @@ const reformatDate = function(date) {
   return date.join('-')
 }
 
-function addNull (str) {
+function addNull(str) {
   if (typeof str !== 'string') {
-    str+=''
+    str += ''
   }
   if (str.length < 2) {
     str = '0' + str
