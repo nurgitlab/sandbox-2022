@@ -6,6 +6,7 @@ const garbageCollection = function (garbage, travel) {
   let cm = 0
   let cp = 0
   let cg = 0
+  
   garbage.forEach((el, i) => {
     el.split('').forEach(el => {
       if (el === 'G') {
