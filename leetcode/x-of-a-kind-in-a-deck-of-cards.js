@@ -30,10 +30,12 @@ const hasGroupsSizeX = function (deck) {
       }
     })
 
-    if (ans) {return true}
+    if (ans) {
+      return true
+    }
   }
 
   return false
 }
 
-console.log(hasGroupsSizeX([1,1,1,1,2,2,2,2,2,2]))
+console.log(hasGroupsSizeX([1, 1, 1, 1, 2, 2, 2, 2, 2, 2]))
