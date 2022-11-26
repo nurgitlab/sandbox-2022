@@ -1,6 +1,7 @@
 const nextGreaterElement = function (nums1, nums2) {
   let mem = {}
   let set = new Set()
+
   for (let i = 0; i < nums2.length; i++) {
     if (set.size > 0) {
       let sa = [...set]
