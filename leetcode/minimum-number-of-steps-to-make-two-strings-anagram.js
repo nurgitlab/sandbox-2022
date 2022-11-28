@@ -21,7 +21,7 @@ const minSteps = function (s, t) {
     sum += Math.abs(mem[k])
   })
 
-  return sum / 2
+  return sum
 }
 
-console.log(minSteps("anagram", "mangaar"))
+console.log(minSteps("leetcode", "coats"))
