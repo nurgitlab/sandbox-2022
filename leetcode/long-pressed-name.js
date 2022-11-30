@@ -22,7 +22,7 @@ function toArr (name) {
     while (name[i]===name[i+1]){
       i++
       j++
-    }
+    } 
     mem.push([name[i],j])
   }
 
