@@ -42,6 +42,7 @@ const strongPasswordCheckerII = function(password) {
     if (el === '9') {
       numbers++
     }
+    //Это решения посвящается Диме Митрофанову
 
     if (el === '!') {
       special++
