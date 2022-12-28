@@ -1,4 +1,4 @@
-var countSegments = function(s) {
+const countSegments = function(s) {
   s = s.trim()
 
   if (s.length === 0) {return 0}
