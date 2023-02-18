@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <input onChange={find}/>
-      {isPending && <h1>Rendering NOW!</h1>}
+      {isPending && <h1>Rendering 3!</h1>}
       <Comments comments={filterComments(comments, search)} />
     </div>
   );
