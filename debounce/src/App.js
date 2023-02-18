@@ -24,10 +24,6 @@ function App() {
     })
   }
 
-  useEffect(() => {
-    console.log('isPending', isPending)
-  }, [isPending])
-
   return (
     <div className="App">
       <input onChange={find}/>
