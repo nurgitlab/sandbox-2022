@@ -1,7 +1,7 @@
 import {useEffect, useState, useTransition} from "react";
-import axios from "axios";
 import {Comments} from "./Comments";
 
+import axios from "axios";
 
 const filterComments = (comments, str) => {
   return comments.filter(comment => comment.name.concat(comment.body).includes(str))
