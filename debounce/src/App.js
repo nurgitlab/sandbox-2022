@@ -2,6 +2,7 @@ import {useEffect, useState, useTransition} from "react";
 import {Comments} from "./Comments";
 
 import axios from "axios";
+import {Mem} from "./Mem";
 
 const filterComments = (comments, str) => {
   return comments.filter(comment => comment.name.concat(comment.body).includes(str))
@@ -26,9 +27,11 @@ function App() {
 
   return (
     <div className="App">
-      <input onChange={find}/>
-      {isPending && <h1>Rendering 3!</h1>}
-      <Comments comments={filterComments(comments, search)} />
+      {/*<input onChange={find}/>*/}
+      {/*{isPending && <h1>Rendering 3!</h1>}*/}
+      {/*<Comments comments={filterComments(comments, search)} />*/}
+
+      <Mem/>
     </div>
   );
 }
