@@ -3,6 +3,7 @@ import {Comments} from "./Comments";
 
 import axios from "axios";
 import {Mem} from "./Mem";
+import {Call} from "./Call";
 
 const filterComments = (comments, str) => {
   return comments.filter(comment => comment.name.concat(comment.body).includes(str))
@@ -31,7 +32,9 @@ function App() {
       {/*{isPending && <h1>Rendering 3!</h1>}*/}
       {/*<Comments comments={filterComments(comments, search)} />*/}
 
-      <Mem/>
+      {/*<Mem/>*/}
+
+      <Call />
     </div>
   );
 }

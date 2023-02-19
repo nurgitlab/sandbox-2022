@@ -1,5 +1,6 @@
 import {useEffect, useMemo, useState} from "react";
 import {Result} from "./Result";
+import {Call} from "./Call";
 
 
 const nums = [9,8,7,6,5,4,3,2,1]
@@ -14,6 +15,10 @@ export const Mem = () => {
   const [r, setR] = useState(true)
   console.log('render')
 
+
+  const someFunc = () => {
+    console.log('CLick')
+  }
   // const sortNums = useMemo(sortedNums, [])
 
   // const dcpm = useMemo(() => <Result n = {val}/>, [val])
@@ -26,6 +31,7 @@ export const Mem = () => {
       <button onClick={() => setR(!r)}>Изменить состояние</button>
       <Result n={val}/>
 
+      <Call func={someFunc}/>
       {/*{dcpm}*/}
     </div>
   )

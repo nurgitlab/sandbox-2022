@@ -1,0 +1,34 @@
+import {useCallback, useState} from "react";
+import {CitiesList} from "./CitiesList";
+
+const listOfCities = ['Beijing','Tokyo','Kinshasa','Moscow','Jakarta'];
+
+export const Call = () => {
+  const [name, setName] = useState("");
+  const [list, setList] = useState(listOfCities);
+
+  const handleClick = () => {
+    setList([...list, name]);
+    setName("");
+  };
+
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleRemoveClick = useCallback((item) => {
+    const filteredList = list.filter((listItem) => listItem !== item);
+
+    setList(filteredList);
+  }, []);
+
+  console.log("Page render");
+
+  return (
+    <div>
+      <input type="text" value={name} onChange={handleChange} />
+      <button onClick={handleClick}>Add</button>
+      <CitiesList list={list} onRemoveClick={handleRemoveClick} />
+    </div>
+  );
+};
