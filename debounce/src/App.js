@@ -4,7 +4,8 @@ import {Comments} from "./Comments";
 import axios from "axios";
 import {Mem} from "./Mem";
 import {Call} from "./Call";
-import {ErrorBoundary} from "./ErrorBoundary";
+import {ErrorBoundary} from "./ErrorBoundry/ErrorBoundary";
+import {LazyLoading} from "./LazyLoading/LazyLoading";
 
 const filterComments = (comments, str) => {
   return comments.filter(comment => comment.name.concat(comment.body).includes(str))
@@ -34,9 +35,11 @@ function App() {
       {/*<Comments comments={filterComments(comments, search)} />*/}
 
       {/*<Mem/>*/}
-      <ErrorBoundary>
-        <Call />
-      </ErrorBoundary>
+      {/*<ErrorBoundary>*/}
+      {/*  <Call />*/}
+      {/*</ErrorBoundary>*/}
+
+      <LazyLoading />
     </div>
   );
 }
