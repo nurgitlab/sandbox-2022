@@ -4,6 +4,7 @@ import {Comments} from "./Comments";
 import axios from "axios";
 import {Mem} from "./Mem";
 import {Call} from "./Call";
+import {ErrorBoundary} from "./ErrorBoundary";
 
 const filterComments = (comments, str) => {
   return comments.filter(comment => comment.name.concat(comment.body).includes(str))
@@ -33,8 +34,9 @@ function App() {
       {/*<Comments comments={filterComments(comments, search)} />*/}
 
       {/*<Mem/>*/}
-
-      <Call />
+      <ErrorBoundary>
+        <Call />
+      </ErrorBoundary>
     </div>
   );
 }

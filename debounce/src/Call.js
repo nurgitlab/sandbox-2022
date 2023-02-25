@@ -1,4 +1,4 @@
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {CitiesList} from "./CitiesList";
 
 const listOfCities = ['Beijing','Tokyo','Kinshasa','Moscow','Jakarta'];
@@ -11,6 +11,15 @@ export const Call = () => {
     setList([...list, name]);
     setName("");
   };
+
+  useEffect(() => {
+    console.log('started')
+    setTimeout(() => {
+      console.log('lets broke!')
+
+      setList(null)
+    }, 2000)
+  }, [])
 
   const handleChange = (e) => {
     setName(e.target.value);
