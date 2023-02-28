@@ -1,14 +1,14 @@
-import express from "express"
+const express = require("express")
+const userRouter = require('./routes/user.routes')
 
-
-const PORT = 5002
+const PORT = process.env.PORT || 8080
 
 const app = express()
 
 app.use(express.json())
+app.use('/api', userRouter)
 
-app.post('/', (req, res) => {
-  console.log(req.body)
-  res.status(200).json('Сервер работает')
+
+app.listen(PORT, () => {
+  console.log('Started on PORT=' + PORT)
 })
-app.listen(PORT, () => console.log('Сервер запущен ' + PORT + ' порт'))
