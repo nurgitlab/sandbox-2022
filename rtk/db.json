@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "id": 1, "title": "JSON-SERVER", "body": "Nurbek"
+    },
+    {
+      "id": 2, "title": "JSON-SERVER", "body": "Nurbek"
+    },
+    {
+      "id": 3, "title": "JSON-SERVER", "body": "Nurbek"
+    },
+    {
+      "id": 4, "title": "JSON-SERVER", "body": "Nurbek"
+    },
+    {
+      "id": 5, "title": "JSON-SERVER", "body": "Nurbek"
+    }
+  ]
+}

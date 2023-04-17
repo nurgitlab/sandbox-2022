@@ -14,6 +14,13 @@ export const postAPI = createApi({
           _limit: limit
         }
       })
+    }),
+    createPost: build.mutation<IPost, IPost>({
+      query: (post) => ({
+        url: '/posts',
+        method: 'POST',
+        body: post
+      })
     })
   })
 })
