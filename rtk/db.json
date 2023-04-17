@@ -1,19 +1,29 @@
 {
   "posts": [
     {
-      "id": 1, "title": "JSON-SERVER", "body": "Nurbek"
+      "id": 1,
+      "title": "JSON-SERVER",
+      "body": "Nurbek"
     },
     {
-      "id": 2, "title": "JSON-SERVER", "body": "Nurbek"
+      "id": 4,
+      "title": "Nurba",
+      "body": "Nurbek"
     },
     {
-      "id": 3, "title": "JSON-SERVER", "body": "Nurbek"
+      "id": 5,
+      "title": "334",
+      "body": "Nurbek"
     },
     {
-      "id": 4, "title": "JSON-SERVER", "body": "Nurbek"
+      "title": "555",
+      "body": "555",
+      "id": 7
     },
     {
-      "id": 5, "title": "JSON-SERVER", "body": "Nurbek"
+      "title": "444",
+      "body": "444",
+      "id": 8
     }
   ]
 }
