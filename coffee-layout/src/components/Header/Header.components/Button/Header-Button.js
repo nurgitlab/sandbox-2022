@@ -1,11 +1,9 @@
 import styles from './Header-Button.module.scss'
 
-export const HeaderButton = ({ text }) => {
-
-
+export const HeaderButton = ({ children }) => {
     return (
         <div className={styles.Container}>
-            {text}
+            {children}
         </div>
     )
 }

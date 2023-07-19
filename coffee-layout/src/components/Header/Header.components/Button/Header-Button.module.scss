@@ -2,10 +2,11 @@
     color: #FFFFFF;
     font-size: 18px;
     height: 22px;
-    width: fit-content;
+    width: max-content;
+    user-select: none;
 }
 
 .Container:hover {
     color: #C99E71;
-    font-weight: 700;
+    cursor: pointer;
 }
