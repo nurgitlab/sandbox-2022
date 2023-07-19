@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Inter";
+    src: local("Inter"),
+      url("./fonts/Inter/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Righteous";
+  src: local("Righteous"),
+  url("./fonts/Righteous/Righteous-Regular.ttf") format("truetype");
+}
+
+.App {
+  min-width: 1000px;
+}

@@ -2,10 +2,11 @@
     display: flex;
     height: 125px;
     background-color: #1C1814;
-
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     justify-content: center;
     align-items: center;
-
 }
 
 .Logo {
