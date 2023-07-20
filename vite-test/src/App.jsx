@@ -1,5 +1,6 @@
 import Name from "./Name.jsx";
 import {useCallback, useState} from "react";
+import {useBrokenState} from "./hooks/useBrokenState.js";
 
 const names = [
   {model: 'A'},
@@ -8,7 +9,8 @@ const names = [
 ]
 
 function App() {
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useBrokenState(0)
+
 
   const getValue = useCallback((item) => {
     console.log('Here|', item.model)
@@ -17,7 +19,6 @@ function App() {
   return (
     <div>
       List: {counter} <button onClick={() => setCounter(counter + 1)}>+1</button>
-
       <div style={{
         display: "flex",
         flexDirection: "column"
