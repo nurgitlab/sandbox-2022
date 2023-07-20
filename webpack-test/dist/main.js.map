@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","mappings":";;;;;AAAA,IAAMA,QAAQ,GAAG,SAAXA,QAAQA,CAAA;EAAA,OAASC,OAAO,CAACC,GAAG,CAAC,OAAO,CAAC;AAAA;AAC3CF,QAAQ,CAAC,CAAC,C","sources":["webpack://webpack-test/./src/index.js"],"sourcesContent":["const sayHello = () => console.log('hello');\r\nsayHello();"],"names":["sayHello","console","log"],"sourceRoot":""}
