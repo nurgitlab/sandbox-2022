@@ -1,7 +1,8 @@
 import {FC, useCallback, useState} from "react";
 import Cell from "../Cell/Cell";
+import {useGenerateBoard} from "../../hooks/useGenerateBoard";
 
-const rows = 5, columns = 7
+const rows = 5, columns = 7, countOfBombs = 15
 
 type ICell = {
     isFlagged: boolean;
@@ -9,36 +10,14 @@ type ICell = {
     value: number;
 }
 
-type IMatrix = Array<Array<ICell>>
+interface IBoardProps {
+    isPlay: boolean,
+    setIsPlay: () => void
+}
 
-export const Board: FC = () => {
-    const [matrix, setMatrix] = useState<IMatrix>(
-        Array(rows).fill(Array(columns).fill(null)).map(line => line.map(() => {
-            return {
-                isFlagged: false,
-                isVisible: false,
-                value: 0
-            }
-        }))
-    )
 
-    const leftHandler = useCallback((e, row, column) => {
-        e.preventDefault();
-        setMatrix(matrix.map((line, i) =>
-            line.map((el, j) => {
-                if (i === row && j === column) {
-                    console.log(e.type)
-                    if (e.type === 'click') {el.isVisible=true} else {
-                        el.isVisible=false
-                    }
-                }
-
-                return el
-            })
-        ))
-
-        console.log(row, column, matrix)
-    }, [])
+export const Board: FC<IBoardProps> = ({isPlay, setIsPlay}) => {
+    const [matrix, clickHandler] = useGenerateBoard<[ICell[][], () => void]>(rows, columns, countOfBombs, setIsPlay, isPlay)
 
     return (
         <div>
@@ -52,8 +31,8 @@ export const Board: FC = () => {
                                 value={value}
                                 row={i}
                                 column={j}
-                                onClick={leftHandler}
-                                onContextMenu={leftHandler}
+                                onClick={clickHandler}
+                                onContextMenu={clickHandler}
                             />
                         )}
                     </div>

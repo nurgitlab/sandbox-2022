@@ -1,0 +1,16 @@
+.Container {
+  width: 80%;
+  height: 80%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+}
+
+.Bomb {
+  background-image: url("../../assets/bomb.png");
+}
+
+
+
