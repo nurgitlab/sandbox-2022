@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useLayoutEffect, useMemo, useState} from "react";
 import {generateBombs} from "../utils/generateBombs";
+import {makeVisible} from "../utils/makeVisible";
 
 type ICell = {
     isFlagged: boolean;
@@ -84,6 +85,8 @@ export const useGenerateBoard = (rows, columns, countOfBombs, setIsPlay, isPlay)
 
                     return el
                 }))
+            } else if (currentMatrix[row][column].value === 0) {
+                currentMatrix = makeVisible(currentMatrix, row, column)
             }
         } else if (!currentMatrix[row][column].isVisible) {
             currentMatrix[row][column].isFlagged=!currentMatrix[row][column].isFlagged
