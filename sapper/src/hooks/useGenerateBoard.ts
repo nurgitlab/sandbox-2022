@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, useState} from "react";
+import {useCallback, useEffect, useLayoutEffect, useMemo, useState} from "react";
 import {generateBombs} from "../utils/generateBombs";
 
 type ICell = {
@@ -40,72 +40,57 @@ export const useGenerateBoard = (rows, columns, countOfBombs, setIsPlay, isPlay)
                 value: value
             }
         }))
-        //Засунь создание матрицы полностью вот сюда Строка 65
-    }), [isPlay])
 
-    console.log(initMatrix)
-
-    const [matrix, setMatrix] = useState<ICell[][]>(initMatrix);
-
-    useEffect(() => {
-        if (!isPlay) {
-            setMatrix(() => Array(rows).fill(Array(columns).fill(null)).map((line, i) => line.map((_, j) => {
-                let value = 0
-                if (bombs.find(el => el[0] === i && el[1] === j)) {
-                    value = -1
-                }
-                return {
-                    isFlagged: false,
-                    isVisible: false,
-                    value: value
-                }
-            })))
-            return;
-        }
-
-        setMatrix([...initMatrix.map((line, i) => [...line].map((el, j) => {
-            el = {...el}
+        mat = mat.map((line, i) => line.map((el, j) => {
             if (el.value === 0) {
                 let count = 0
 
                 for (let k = i - 1; k<= i + 1; k++) {
                     for (let l = j - 1; l <= j + 1; l++) {
-                        if (matrix[k] && matrix[k][l] && matrix[k][l].value === -1) count++
+                        if (mat[k] && mat[k][l] && mat[k][l].value === -1) count++
                     }
                 }
                 el.value = count
             }
 
             return el
-        }))])
+        }))
+
+        return mat
     }, [isPlay])
 
+    const [matrix, setMatrix] = useState<ICell[][]>(initMatrix);
+
+    useEffect(()=> {
+        if (isPlay) setMatrix(initMatrix)
+    }, [isPlay])
 
     const clickHandler = useCallback((e, row, column) => {
         e.preventDefault();
 
         if (!isPlay) return;
-        setMatrix(matrix.map((line, i) =>
-            line.map((el, j) => {
-                if (i === row && j === column) {
-                    console.log(e.type)
-                    if (e.type === 'click') {
-                        el.isVisible = true
-                        el.isFlagged = false
 
-                        if (el.value === -1) {
-                            setIsPlay(false)
-                        }
-                    } else if (!el.isVisible) {
-                        el.isFlagged = !el.isFlagged
-                    }
-                }
+        let currentMatrix = [...initMatrix]
 
-                return el
-            })
-        ))
+        if (e.type === 'click') {
+            currentMatrix[row][column].isVisible = true
+            currentMatrix[row][column].isFlagged = false
 
-        console.log(row, column, matrix)
+            if (currentMatrix[row][column].value === -1) {
+                currentMatrix[row][column].value = -2
+                setIsPlay(false)
+                currentMatrix = currentMatrix.map(line => line.map(el => {
+                    el.isVisible = true
+
+                    return el
+                }))
+            }
+        } else if (!currentMatrix[row][column].isVisible) {
+            currentMatrix[row][column].isFlagged=!currentMatrix[row][column].isFlagged
+        }
+
+        setMatrix(currentMatrix)
+        console.log(row, column, currentMatrix)
     }, [isPlay])
 
     return [matrix, clickHandler]
