@@ -9,3 +9,9 @@ export interface ICellProps {
     onClick: (e: MouseEvent, row: number, column: number, ) => void;
     onContextMenu: (e: MouseEvent, row: number, column: number, ) => void;
 }
+
+export interface ICell {
+    isFlagged: boolean;
+    isVisible: boolean;
+    value: number;
+}

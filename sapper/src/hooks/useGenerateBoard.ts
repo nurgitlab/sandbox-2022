@@ -1,6 +1,8 @@
-import {useCallback, useEffect, useLayoutEffect, useMemo, useState} from "react";
+import {useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState} from "react";
 import {generateBombs} from "../utils/generateBombs";
 import {makeVisible} from "../utils/makeVisible";
+import {deactivateFlags} from "../utils/deactivateFlags";
+import {checkWin} from "../utils/checkWin";
 
 type ICell = {
     isFlagged: boolean;
@@ -24,6 +26,7 @@ type IUseGenerateBoardProps = (
 ) => [
     matrix: number,
     clickHandler: () => void,
+    flags: number
 ];
 
 
@@ -61,21 +64,35 @@ export const useGenerateBoard = (rows, columns, countOfBombs, setIsPlay, isPlay)
     }, [isPlay])
 
     const [matrix, setMatrix] = useState<ICell[][]>(initMatrix);
+    const [flags, setFlags] = useState(countOfBombs);
+    const [isWin, setIsWin] = useState(false)
+
+    const refFlags = useRef(countOfBombs)
+    useEffect(() => {
+        setFlags(refFlags.current)
+    }, [refFlags.current])
 
     useEffect(()=> {
-        if (isPlay) setMatrix(initMatrix)
+        if (isPlay) {
+            setMatrix(initMatrix)
+            refFlags.current = countOfBombs
+            setIsWin(false)
+        }
     }, [isPlay])
 
     const clickHandler = useCallback((e, row, column) => {
         e.preventDefault();
-
         if (!isPlay) return;
 
         let currentMatrix = [...initMatrix]
 
         if (e.type === 'click') {
             currentMatrix[row][column].isVisible = true
-            currentMatrix[row][column].isFlagged = false
+
+            if (currentMatrix[row][column].isFlagged) {
+                refFlags.current++
+                currentMatrix[row][column].isFlagged = false
+            }
 
             if (currentMatrix[row][column].value === -1) {
                 currentMatrix[row][column].value = -2
@@ -87,14 +104,30 @@ export const useGenerateBoard = (rows, columns, countOfBombs, setIsPlay, isPlay)
                 }))
             } else if (currentMatrix[row][column].value === 0) {
                 currentMatrix = makeVisible(currentMatrix, row, column)
+
+                let [df, nmat]= deactivateFlags(currentMatrix)
+                currentMatrix = nmat
+                refFlags.current+=df
             }
         } else if (!currentMatrix[row][column].isVisible) {
-            currentMatrix[row][column].isFlagged=!currentMatrix[row][column].isFlagged
+            if (currentMatrix[row][column].isFlagged) {
+                currentMatrix[row][column].isFlagged = false
+                refFlags.current++
+            } else if (refFlags.current > 0) {
+                currentMatrix[row][column].isFlagged = true
+                refFlags.current--
+            }
+        }
+
+        if (refFlags.current === 0 && checkWin(currentMatrix)) {
+            setIsWin(true)
+            setIsPlay(false)
+        } else {
+            setIsWin(false)
         }
 
         setMatrix(currentMatrix)
-        console.log(row, column, currentMatrix)
     }, [isPlay])
 
-    return [matrix, clickHandler]
+    return [matrix, clickHandler, flags, isWin]
 }
