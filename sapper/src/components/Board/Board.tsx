@@ -2,7 +2,7 @@ import {FC, useCallback, useState} from "react";
 import Cell from "../Cell/Cell";
 import {useGenerateBoard} from "../../hooks/useGenerateBoard";
 
-const rows = 5, columns = 5, countOfBombs = 1
+const rows = 7, columns = 7, countOfBombs = 10
 
 type ICell = {
     isFlagged: boolean;

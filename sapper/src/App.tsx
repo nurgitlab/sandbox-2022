@@ -7,8 +7,10 @@ function App() {
     return (
         <div>
             <div className={styles.Container}>
-                <button onClick={() => setIsPlay(!isPlay)}>New Game</button>
-                {JSON.stringify(isPlay)}
+                <div>
+                    <button onClick={() => setIsPlay(!isPlay)}>New Game</button>
+                    {JSON.stringify(isPlay)}
+                </div>
                 <Board isPlay={isPlay} setIsPlay={setIsPlay}/>
             </div>
 

@@ -6,8 +6,10 @@ export const deactivateFlags:IDeactivateFlags = (matrix) => {
     let count = 0
 
     matrix = matrix.map(line => line.map(el => {
-        if (el.isFlagged && el.isVisible) count++
-        el.isFlagged = false
+        if (el.isFlagged && el.isVisible) {
+            count++
+            el.isFlagged = false
+        }
         return el
     }))
 
